@@ -1,0 +1,206 @@
+ARM GAS  /tmp/ccePWRQQ.s 			page 1
+
+
+   1              		.cpu cortex-m7
+   2              		.eabi_attribute 28, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"module_using_freertos.c"
+  13              		.text
+  14              	.Ltext0:
+  15              		.cfi_sections	.debug_frame
+  16              		.section	.text.module_init,"ax",%progbits
+  17              		.align	1
+  18              		.global	module_init
+  19              		.arch armv7e-m
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv5-d16
+  25              	module_init:
+  26              	.LFB5:
+  27              		.file 1 "../../../app/src/module_using_freertos.c"
+   1:../../../app/src/module_using_freertos.c **** #include "module_using_freertos.h"
+   2:../../../app/src/module_using_freertos.c **** 
+   3:../../../app/src/module_using_freertos.c **** void module_init(uint32_t* queue_data, module_handle_t *handle)
+   4:../../../app/src/module_using_freertos.c **** {
+  28              		.loc 1 4 1
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 8
+  31              		@ frame_needed = 1, uses_anonymous_args = 0
+  32 0000 80B5     		push	{r7, lr}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 7, -8
+  36              		.cfi_offset 14, -4
+  37 0002 84B0     		sub	sp, sp, #16
+  38              	.LCFI1:
+  39              		.cfi_def_cfa_offset 24
+  40 0004 02AF     		add	r7, sp, #8
+  41              	.LCFI2:
+  42              		.cfi_def_cfa 7, 16
+  43 0006 7860     		str	r0, [r7, #4]
+  44 0008 3960     		str	r1, [r7]
+   5:../../../app/src/module_using_freertos.c ****            handle->queue = xQueueCreateStatic(MODULE_QUEUE_DEPTH,
+  45              		.loc 1 5 28
+  46 000a 3B68     		ldr	r3, [r7]
+  47 000c 0433     		adds	r3, r3, #4
+  48 000e 0022     		movs	r2, #0
+  49 0010 0092     		str	r2, [sp]
+  50 0012 7A68     		ldr	r2, [r7, #4]
+  51 0014 0421     		movs	r1, #4
+  52 0016 0A20     		movs	r0, #10
+  53 0018 FFF7FEFF 		bl	xQueueGenericCreateStatic
+ARM GAS  /tmp/ccePWRQQ.s 			page 2
+
+
+  54 001c 0246     		mov	r2, r0
+  55              		.loc 1 5 26
+  56 001e 3B68     		ldr	r3, [r7]
+  57 0020 1A60     		str	r2, [r3]
+   6:../../../app/src/module_using_freertos.c ****                                            sizeof(uint32_t),
+   7:../../../app/src/module_using_freertos.c ****                                            (uint8_t*)queue_data,
+   8:../../../app/src/module_using_freertos.c ****                                            &handle->queue_buffer); 
+   9:../../../app/src/module_using_freertos.c **** }
+  58              		.loc 1 9 1
+  59 0022 00BF     		nop
+  60 0024 0837     		adds	r7, r7, #8
+  61              	.LCFI3:
+  62              		.cfi_def_cfa_offset 8
+  63 0026 BD46     		mov	sp, r7
+  64              	.LCFI4:
+  65              		.cfi_def_cfa_register 13
+  66              		@ sp needed
+  67 0028 80BD     		pop	{r7, pc}
+  68              		.cfi_endproc
+  69              	.LFE5:
+  71              		.section	.text.module_push,"ax",%progbits
+  72              		.align	1
+  73              		.global	module_push
+  74              		.syntax unified
+  75              		.thumb
+  76              		.thumb_func
+  77              		.fpu fpv5-d16
+  79              	module_push:
+  80              	.LFB6:
+  10:../../../app/src/module_using_freertos.c **** 
+  11:../../../app/src/module_using_freertos.c **** void module_push(uint32_t value, module_handle_t* handle)
+  12:../../../app/src/module_using_freertos.c **** {
+  81              		.loc 1 12 1
+  82              		.cfi_startproc
+  83              		@ args = 0, pretend = 0, frame = 8
+  84              		@ frame_needed = 1, uses_anonymous_args = 0
+  85              		@ link register save eliminated.
+  86 0000 80B4     		push	{r7}
+  87              	.LCFI5:
+  88              		.cfi_def_cfa_offset 4
+  89              		.cfi_offset 7, -4
+  90 0002 83B0     		sub	sp, sp, #12
+  91              	.LCFI6:
+  92              		.cfi_def_cfa_offset 16
+  93 0004 00AF     		add	r7, sp, #0
+  94              	.LCFI7:
+  95              		.cfi_def_cfa_register 7
+  96 0006 7860     		str	r0, [r7, #4]
+  97 0008 3960     		str	r1, [r7]
+  13:../../../app/src/module_using_freertos.c **** 
+  14:../../../app/src/module_using_freertos.c **** }
+  98              		.loc 1 14 1
+  99 000a 00BF     		nop
+ 100 000c 0C37     		adds	r7, r7, #12
+ 101              	.LCFI8:
+ 102              		.cfi_def_cfa_offset 4
+ 103 000e BD46     		mov	sp, r7
+ARM GAS  /tmp/ccePWRQQ.s 			page 3
+
+
+ 104              	.LCFI9:
+ 105              		.cfi_def_cfa_register 13
+ 106              		@ sp needed
+ 107 0010 5DF8047B 		ldr	r7, [sp], #4
+ 108              	.LCFI10:
+ 109              		.cfi_restore 7
+ 110              		.cfi_def_cfa_offset 0
+ 111 0014 7047     		bx	lr
+ 112              		.cfi_endproc
+ 113              	.LFE6:
+ 115              		.section	.text.module_pop,"ax",%progbits
+ 116              		.align	1
+ 117              		.global	module_pop
+ 118              		.syntax unified
+ 119              		.thumb
+ 120              		.thumb_func
+ 121              		.fpu fpv5-d16
+ 123              	module_pop:
+ 124              	.LFB7:
+  15:../../../app/src/module_using_freertos.c **** 
+  16:../../../app/src/module_using_freertos.c **** uint32_t module_pop(module_handle_t* handle)
+  17:../../../app/src/module_using_freertos.c **** {
+ 125              		.loc 1 17 1
+ 126              		.cfi_startproc
+ 127              		@ args = 0, pretend = 0, frame = 8
+ 128              		@ frame_needed = 1, uses_anonymous_args = 0
+ 129              		@ link register save eliminated.
+ 130 0000 80B4     		push	{r7}
+ 131              	.LCFI11:
+ 132              		.cfi_def_cfa_offset 4
+ 133              		.cfi_offset 7, -4
+ 134 0002 83B0     		sub	sp, sp, #12
+ 135              	.LCFI12:
+ 136              		.cfi_def_cfa_offset 16
+ 137 0004 00AF     		add	r7, sp, #0
+ 138              	.LCFI13:
+ 139              		.cfi_def_cfa_register 7
+ 140 0006 7860     		str	r0, [r7, #4]
+  18:../../../app/src/module_using_freertos.c ****     return 0;
+ 141              		.loc 1 18 12
+ 142 0008 0023     		movs	r3, #0
+  19:../../../app/src/module_using_freertos.c **** }...
+ 143              		.loc 1 19 1
+ 144 000a 1846     		mov	r0, r3
+ 145 000c 0C37     		adds	r7, r7, #12
+ 146              	.LCFI14:
+ 147              		.cfi_def_cfa_offset 4
+ 148 000e BD46     		mov	sp, r7
+ 149              	.LCFI15:
+ 150              		.cfi_def_cfa_register 13
+ 151              		@ sp needed
+ 152 0010 5DF8047B 		ldr	r7, [sp], #4
+ 153              	.LCFI16:
+ 154              		.cfi_restore 7
+ 155              		.cfi_def_cfa_offset 0
+ 156 0014 7047     		bx	lr
+ 157              		.cfi_endproc
+ARM GAS  /tmp/ccePWRQQ.s 			page 4
+
+
+ 158              	.LFE7:
+ 160              		.text
+ 161              	.Letext0:
+ 162              		.file 2 "/usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h"
+ 163              		.file 3 "Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1/portmacro.h"
+ 164              		.file 4 "Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h"
+ 165              		.file 5 "Middlewares/Third_Party/FreeRTOS/Source/include/queue.h"
+ 166              		.file 6 "../../../app/inc/module_using_freertos.h"
+ 167              		.file 7 "Core/Inc/FreeRTOSConfig.h"
+ARM GAS  /tmp/ccePWRQQ.s 			page 5
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 module_using_freertos.c
+     /tmp/ccePWRQQ.s:17     .text.module_init:0000000000000000 $t
+     /tmp/ccePWRQQ.s:25     .text.module_init:0000000000000000 module_init
+     /tmp/ccePWRQQ.s:72     .text.module_push:0000000000000000 $t
+     /tmp/ccePWRQQ.s:79     .text.module_push:0000000000000000 module_push
+     /tmp/ccePWRQQ.s:116    .text.module_pop:0000000000000000 $t
+     /tmp/ccePWRQQ.s:123    .text.module_pop:0000000000000000 module_pop
+
+UNDEFINED SYMBOLS
+xQueueGenericCreateStatic
