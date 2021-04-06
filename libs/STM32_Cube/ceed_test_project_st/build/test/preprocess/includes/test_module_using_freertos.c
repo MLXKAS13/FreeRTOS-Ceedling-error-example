@@ -1,4 +1,4 @@
 ---
 - "/var/lib/gems/2.7.0/gems/ceedling-0.31.0/vendor/unity/src/unity.h"
-- build/test/mocks/mock_queue.h
+- mock_queue.h
 - "../../../app/inc/module_using_freertos.h"

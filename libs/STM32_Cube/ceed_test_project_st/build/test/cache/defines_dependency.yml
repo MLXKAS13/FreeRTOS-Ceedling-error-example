@@ -1,23 +1,11 @@
 ---
-"../../../app/src/system.c":
+build/test/mocks/mock_queue.c:
 - USE_FULL_LL_DRIVER
 - USE_HAL_DRIVER
 - STM32F765xx
 - STATIC_TESTABLE=""
 - UNIT_TEST
 "../../../app/src/module_using_freertos.c":
-- USE_FULL_LL_DRIVER
-- USE_HAL_DRIVER
-- STM32F765xx
-- STATIC_TESTABLE=""
-- UNIT_TEST
-build/test/mocks/mock_module_using_freertos.c:
-- USE_FULL_LL_DRIVER
-- USE_HAL_DRIVER
-- STM32F765xx
-- STATIC_TESTABLE=""
-- UNIT_TEST
-build/test/mocks/mock_queue.c:
 - USE_FULL_LL_DRIVER
 - USE_HAL_DRIVER
 - STM32F765xx
